@@ -27,7 +27,5 @@ clean:
 	rm -f $(OBJS) ../$(BIN)
 
 install:
-	@echo
-	@echo "No install method"
-	@echo "Copy the binary and documentation to desired location"
-	@echo
+	install -D ringserver /usr/bin
+	install -D ringserver.conf.example /etc/ringserver.conf
