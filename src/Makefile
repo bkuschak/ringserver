@@ -27,5 +27,13 @@ clean:
 	rm -f $(OBJS) ../$(BIN)
 
 install:
-	install -D ringserver /usr/bin
+	install -D ../$(BIN) /usr/bin
 	install -D ringserver.conf.example /etc/ringserver.conf
+	install -D -m 644 ringserver.service /etc/systemd/system
+	systemctl enable ringserver
+	systemctl start ringserver
+                                                                                
+deactivate:                                                                     
+	systemctl stop ringserver
+	systemctl disable ringserver
+

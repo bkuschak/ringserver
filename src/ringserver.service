@@ -1,0 +1,14 @@
+[Unit]
+Description=IRIS Ringserver: Generic packet ring buffer with network interfaces.
+
+[Service]
+RuntimeDirectory=/tmp/ringserver
+RuntimeDirectoryMode=0775
+ExecStart=/usr/bin/ringserver /etc/ringserver.conf
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target
+#After=network-online.target
+#Wants=network-online.target
