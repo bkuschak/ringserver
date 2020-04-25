@@ -2,7 +2,7 @@ ListenPort 18000
 MaxClients 10
 MaxPacketID 16777215
 MaxPacketSize 512
-RingDirectory /tmp/ringserver
-RingSize 1G
+RingDirectory /ringserver
+RingSize 128M
 ServerID "Ring Server"
 WriteIP 0.0.0.0/0.0.0.0

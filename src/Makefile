@@ -27,13 +27,24 @@ clean:
 	rm -f $(OBJS) ../$(BIN)
 
 install:
+	mkdir -p /ringserver
 	install -D ../$(BIN) /usr/bin
 	install -D ringserver.conf.example /etc/ringserver.conf
 	install -D -m 644 ringserver.service /etc/systemd/system
-	systemctl enable ringserver
-	systemctl start ringserver
-                                                                                
-deactivate:                                                                     
+	@echo
+	@echo "**************************************************************"
+	@echo "*** Run 'sudo make activate' to start ringserver as a systemd service."
+	@echo "**************************************************************"
+
+activate:
 	systemctl stop ringserver
 	systemctl disable ringserver
+	systemctl enable ringserver
+	systemctl start ringserver
+	systemctl status ringserver
+
+deactivate:
+	systemctl stop ringserver
+	systemctl disable ringserver
+	systemctl status ringserver
 
