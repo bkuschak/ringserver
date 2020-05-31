@@ -1,4 +1,5 @@
-ListenPort 18000
+DataLinkPort 16000
+SeedLinkPort 18000
 MaxClients 10
 MaxPacketID 16777215
 MaxPacketSize 512
